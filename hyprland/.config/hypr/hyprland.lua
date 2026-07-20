@@ -144,6 +144,9 @@ hl.config({
         disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
         focus_on_activate = true,
     },
+    xwayland = {
+        force_zero_scaling = true,
+    },
 })
 
 ---------------
