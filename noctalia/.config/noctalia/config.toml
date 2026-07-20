@@ -1,0 +1,47 @@
+[theme]
+mode = "dark"
+source = "builtin"
+builtin = "Tokyo-Night"
+
+[wallpaper]
+enabled = true
+fill_mode = "fit" # center | crop | fit | stretch | repeat | span
+
+directory = "/home/joe/.config/noctalia/wallpapers"
+
+[wallpaper.default]
+# path = "/home/joe/nixos-dotfiles/config/noctalia/wallpapers/tn1.png"
+path = "/home/joe/.config/noctalia/wallpapers/tn1.png"
+
+[shell]
+font_family = "JetBrainsMono Nerd Font"
+
+[shell.session]
+grid = false
+grid_columns = 3
+
+[[shell.session.actions]]
+action = "lock"
+shortcut = "1"
+
+[[shell.session.actions]]
+action = "reboot"
+shortcut = "2"
+
+[[shell.session.actions]]
+action = "shutdown"
+shortcut = "3"
+
+[shell.launcher]
+categories = false
+fetch_exchange_rates = true
+
+[keybinds]
+validate = ["return", "kp_enter"]
+cancel   = ["escape"]
+left     = ["left"]
+right    = ["right"]
+up       = ["up", "ctrl+k"]
+down     = ["down", "ctrl+j"]
+tab_next = ["tab"]
+tab_previous = ["shift+tab", "iso_left_tab"]
