@@ -40,6 +40,9 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd("waybar & hyprpaper & firefox")
   hl.exec_cmd("noctalia")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
+  hl.exec_cmd("xwaylandvideobridge")
+  hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 end)
 
 -------------------------------
