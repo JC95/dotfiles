@@ -189,6 +189,7 @@ hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(terminal .. " -e wiremix", { 
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(terminal .. " -e btop"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(terminal .. " -e impala", { float = true, size  = "50% 60%", }))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind("CTRL + SHIFT + M", hl.dsp.pass({ window = "class:^(vesktop)$" }))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
