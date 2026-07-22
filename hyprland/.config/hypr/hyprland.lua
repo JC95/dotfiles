@@ -156,20 +156,17 @@ hl.config({
         kb_rules   = "",
 
         follow_mouse = 1,
-
-        sensitivity = -0.5, -- -1.0 - 1.0, 0 means no modification.
-
         touchpad = {
             natural_scroll = false,
         },
     },
 })
 
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
--- hl.device({
---     name        = "epic-mouse-v1",
---     sensitivity = -0.5,
--- })
+hl.device({
+    name        = "pulsar-x2h-mini-1",
+    sensitivity = -0.5,
+    accel_profile = flat
+})
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -190,7 +187,7 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(terminal .. " -e btop"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(terminal .. " -e impala", { float = true, size  = "50% 60%", }))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind("CTRL + SHIFT + M", hl.dsp.pass({ window = "class:^(vesktop)$" }))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + SHIFT + ALT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
