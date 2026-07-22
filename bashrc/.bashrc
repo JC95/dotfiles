@@ -2,6 +2,11 @@
 # ~/.bashrc
 #
 
+if [[ $- == *i* ]]; then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
+
 if command -v mise &> /dev/null; then
   eval "$(mise activate bash)"
 fi
