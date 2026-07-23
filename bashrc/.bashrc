@@ -51,3 +51,5 @@ gc() {
     fi
     git clone "joecryer@192.168.0.64:/Users/joecryer/Documents/repos/$1"
 }
+
+alias lg='lazygit'
