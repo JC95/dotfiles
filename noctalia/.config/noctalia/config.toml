@@ -39,9 +39,18 @@ fetch_exchange_rates = true
 [keybinds]
 validate = ["return", "kp_enter"]
 cancel   = ["escape"]
-left     = ["left"]
-right    = ["right"]
+left     = ["left", "ctrl+h"]
+right    = ["right", "ctrl+l"]
 up       = ["up", "ctrl+k"]
 down     = ["down", "ctrl+j"]
 tab_next = ["tab"]
 tab_previous = ["shift+tab", "iso_left_tab"]
+
+[location]
+auto_locate = true
+
+[weather]
+enabled = true
+refresh_minuted = 30
+unit = "metric"
+effects = true
