@@ -107,27 +107,18 @@ hl.config({
         warp_on_change_workspace = 1,
         inactive_timeout = 2,
     };
-})
 
--- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
-hl.config({
     dwindle = {
         preserve_split = true, -- You probably want this
     },
-})
 
--- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
-hl.config({
     master = {
         new_status = "master",
     },
-})
 
--- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
-hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
+    -- scrolling = {
+    --     fullscreen_on_one_column = true,
+    -- },
 })
 
 ----------------
@@ -198,10 +189,17 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
-hl.bind(mainMod .. " + SHIFT + RIGHT",  hl.dsp.window.swap({ direction = "r" }))
+-- Move window with mainMod + shift + arrow keys
 hl.bind(mainMod .. " + SHIFT + LEFT",  hl.dsp.window.swap({ direction = "l" }))
+hl.bind(mainMod .. " + SHIFT + RIGHT",  hl.dsp.window.swap({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + UP",  hl.dsp.window.swap({ direction = "u" }))
 hl.bind(mainMod .. " + SHIFT + DOWN",  hl.dsp.window.swap({ direction = "d" }))
+
+-- Adjust window size with mainMod + shift + h|j|k|l
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
