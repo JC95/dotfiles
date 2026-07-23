@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", ":", ";")
+
 vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked text" })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
