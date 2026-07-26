@@ -39,4 +39,4 @@ capsule_opacity = 1.0
 
 start = ["clock"]
 center = ["workspaces"]
-end = ["tray", "notifications"]
+end = ["battery", "tray", "notifications"]
