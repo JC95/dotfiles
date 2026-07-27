@@ -55,17 +55,39 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
-hl.workspace_rule({ workspace = "1", monitor = "DP-2", persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = "DP-2", persistent = true })
-hl.workspace_rule({ workspace = "3", monitor = "DP-2", persistent = true })
-hl.workspace_rule({ workspace = "4", monitor = "DP-2", persistent = true })
-hl.workspace_rule({ workspace = "5", monitor = "DP-2", persistent = true })
 
-hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
-hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
-hl.workspace_rule({ workspace = "4", monitor = "eDP-1", persistent = true })
-hl.workspace_rule({ workspace = "5", monitor = "eDP-1", persistent = true })
+local function pick_monitor(candidates)
+  local connected = {}
+  for _, mon in ipairs(hl.get_monitors()) do
+    connected[mon.name] = true
+  end
+  for _, name in ipairs(candidates) do
+    if connected[name] then
+      return name
+    end
+  end
+  return ""
+end
+
+local primary = pick_monitor({ "DP-2", "eDP-1" })
+
+hl.workspace_rule({ workspace = "1", monitor = primary, persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = primary, persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = primary, persistent = true })
+hl.workspace_rule({ workspace = "4", monitor = primary, persistent = true })
+hl.workspace_rule({ workspace = "5", monitor = primary, persistent = true })
+
+-- hl.workspace_rule({ workspace = "1", monitor = "DP-2", persistent = true })
+-- hl.workspace_rule({ workspace = "2", monitor = "DP-2", persistent = true })
+-- hl.workspace_rule({ workspace = "3", monitor = "DP-2", persistent = true })
+-- hl.workspace_rule({ workspace = "4", monitor = "DP-2", persistent = true })
+-- hl.workspace_rule({ workspace = "5", monitor = "DP-2", persistent = true })
+
+-- hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
+-- hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
+-- hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
+-- hl.workspace_rule({ workspace = "4", monitor = "eDP-1", persistent = true })
+-- hl.workspace_rule({ workspace = "5", monitor = "eDP-1", persistent = true })
 
 hl.config({
     general = {
@@ -189,7 +211,7 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileBrowser))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(terminal .. " -e wiremix", { float = true, size  = "50% 60%", }))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(terminal .. " -e btop"))
-hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(terminal .. " -e impala", { float = true, size  = "50% 60%", }))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(terminal .. " -e wlctl", { float = true, size  = "50% 60%", }))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind("CTRL + SHIFT + M", hl.dsp.pass({ window = "class:^(vesktop)$" }))
 hl.bind(mainMod .. " + SHIFT + ALT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
