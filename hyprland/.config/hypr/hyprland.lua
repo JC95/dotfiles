@@ -40,7 +40,7 @@ local fileBrowser = "nautilus"
 ---- AUTOSTART ----
 -------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
   hl.exec_cmd("noctalia")
   hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
   hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
@@ -55,7 +55,6 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
-
 local function pick_monitor(candidates)
   local connected = {}
   for _, mon in ipairs(hl.get_monitors()) do
@@ -76,18 +75,6 @@ hl.workspace_rule({ workspace = "2", monitor = primary, persistent = true })
 hl.workspace_rule({ workspace = "3", monitor = primary, persistent = true })
 hl.workspace_rule({ workspace = "4", monitor = primary, persistent = true })
 hl.workspace_rule({ workspace = "5", monitor = primary, persistent = true })
-
--- hl.workspace_rule({ workspace = "1", monitor = "DP-2", persistent = true })
--- hl.workspace_rule({ workspace = "2", monitor = "DP-2", persistent = true })
--- hl.workspace_rule({ workspace = "3", monitor = "DP-2", persistent = true })
--- hl.workspace_rule({ workspace = "4", monitor = "DP-2", persistent = true })
--- hl.workspace_rule({ workspace = "5", monitor = "DP-2", persistent = true })
-
--- hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
--- hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
--- hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
--- hl.workspace_rule({ workspace = "4", monitor = "eDP-1", persistent = true })
--- hl.workspace_rule({ workspace = "5", monitor = "eDP-1", persistent = true })
 
 hl.config({
     general = {
@@ -217,7 +204,6 @@ hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind("CTRL + SHIFT + M", hl.dsp.pass({ window = "class:^(vesktop)$" }))
 hl.bind(mainMod .. " + SHIFT + ALT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
