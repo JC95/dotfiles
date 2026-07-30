@@ -42,7 +42,6 @@ local fileBrowser = "nautilus"
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function ()
   hl.exec_cmd("noctalia")
-  hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
   hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
 end)
 
@@ -198,6 +197,7 @@ hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileBrowser))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(terminal .. " -e wiremix", { float = true, size  = "50% 60%", }))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(terminal .. " -e joelinux-pkg-menu", { float = true, size  = "50% 60%", }))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(terminal .. " -e btop"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(terminal .. " -e wlctl", { float = true, size  = "50% 60%", }))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
