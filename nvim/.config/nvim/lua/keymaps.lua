@@ -29,6 +29,15 @@ vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true, desc =
 
 vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart config :restart)" })
 
+vim.keymap.set("n", "<leader>jr", function()
+  local class = vim.fn.expand("<cword>")
+  local jars = "/home/joe/javalib/tester.jar:/home/joe/javalib/javalib.jar"
+  local dir = vim.fn.expand("%:p:h")
+  local file = vim.fn.expand("%:p")
+  vim.cmd("split | terminal cd '" .. dir .. "' && javac -cp '" .. jars .. "' '" ..
+    file .. "' && java -cp '.:" .. jars .. "' tester.Main " .. class)
+end, { desc = "Run tester.Main for word under cursor" })
+
 -- native undotree
 vim.keymap.set("n", "<leader>u", function()
     vim.cmd.packadd("nvim.undotree")

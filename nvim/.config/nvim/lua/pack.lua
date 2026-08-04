@@ -6,13 +6,33 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
     "https://github.com/tpope/vim-fugitive",
+    { src = 'https://github.com/JavaHello/spring-boot.nvim',      version = '218c0c26c14d99feca778e4d13f5ec3e8b1b60f0', },
+    'https://github.com/MunifTanjim/nui.nvim',
+    'https://github.com/mfussenegger/nvim-dap',
+    'https://github.com/nvim-java/nvim-java',
+})
+
+---- java ----
+require('java').setup({
+    jdtls = {
+        settings = {
+            java = {
+                project = {
+                    referencedLibraries = {
+                        vim.fn.expand("~/javalib/tester.jar"),
+                        vim.fn.expand("~/javalib/javalib.jar"),
+                    },
+                },
+            },
+        },
+    },
 })
 
 require("tinted-nvim").setup({
     default_scheme = "base16-tokyo-night-dark"
 })
 
--- mini files ----
+---- mini files ----
 local MiniFiles = require("mini.files")
 MiniFiles.setup({
     mappings = {

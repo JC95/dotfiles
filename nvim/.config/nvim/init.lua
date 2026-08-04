@@ -8,4 +8,3 @@ require("treesitter")
 require("lsp")
 
 vim.api.nvim_set_hl(0, "Visual", { bg = "#ffffff" })
--- vim.cmd.colorscheme("moonfly")
