@@ -77,8 +77,10 @@ hl.workspace_rule({ workspace = "5", monitor = primary, persistent = true })
 
 hl.config({
     general = {
-        gaps_in  = 4,
-        gaps_out = 8,
+        -- gaps_in  = 4,
+        -- gaps_out = 8,
+        gaps_in  = 0,
+        gaps_out = 0,
 
         border_size = 2,
 
@@ -97,8 +99,10 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
-        rounding_power = 2,
+        -- rounding       = 10,
+        -- rounding_power = 2,
+        rounding       = 0,
+        rounding_power = 0,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
