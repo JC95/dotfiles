@@ -2,7 +2,7 @@
 ---- MONITORS ----
 ------------------
 hl.monitor({
-    output   = "HDMI-A-2",
+    output   = "HDMI-A-1",
     mode     = "2560x1440@60",
     position = "0x0",
     scale    = "1.25",
@@ -74,6 +74,11 @@ hl.workspace_rule({ workspace = "2", monitor = primary, persistent = true })
 hl.workspace_rule({ workspace = "3", monitor = primary, persistent = true })
 hl.workspace_rule({ workspace = "4", monitor = primary, persistent = true })
 hl.workspace_rule({ workspace = "5", monitor = primary, persistent = true })
+
+hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1", persistent = true })
 
 hl.config({
     general = {
@@ -179,7 +184,8 @@ hl.config({
 })
 
 hl.device({
-    name        = "pulsar-x2h-mini-1",
+    name        = "pulsar-pulsar-1k-dongle-update-1",
+    name        = "pulsar-pulsar-mouse-ir-update-1",
     sensitivity = -0.5,
     accel_profile = flat
 })

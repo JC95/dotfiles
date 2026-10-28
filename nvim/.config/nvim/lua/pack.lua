@@ -1,7 +1,6 @@
 vim.pack.add({
     "https://github.com/tinted-theming/tinted-nvim",
     "https://github.com/nvim-mini/mini.nvim",
-    "https://github.com/rafamadriz/friendly-snippets",
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
@@ -10,6 +9,9 @@ vim.pack.add({
     'https://github.com/MunifTanjim/nui.nvim',
     'https://github.com/mfussenegger/nvim-dap',
     'https://github.com/nvim-java/nvim-java',
+    'https://github.com/tpope/vim-dadbod',
+    'https://github.com/kristijanhusak/vim-dadbod-ui',
+    'https://github.com/kristijanhusak/vim-dadbod-completion',
 })
 
 ---- java ----
@@ -98,14 +100,14 @@ require("mini.completion").setup({
     }
 })
 
---- mini snippets ---
-local MiniSnippets = require("mini.snippets")
-MiniSnippets.setup({
-    snippets = {
-        MiniSnippets.gen_loader.from_lang(), -- loads friendly-snippets
-    },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'sql', 'mysql', 'plsql' },
+  callback = function(ev)
+    vim.bo[ev.buf].omnifunc = 'vim_dadbod_completion#omni'
+    -- fallback <C-n> pulls from: omnifunc (dadbod), then current buffer
+    vim.bo[ev.buf].complete = 'o,.'
+  end,
 })
-MiniSnippets.start_lsp_server({ match = false })
 
 --- mini diff and fugitive ---
 local MiniDiff = require("mini.diff")
